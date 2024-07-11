@@ -25,7 +25,7 @@ def summarize_article(url):
     """Summarizes an article using the provided URL."""
     loader = WebBaseLoader(url)
     docs = loader.load()
-
+  
     # To extract data from WebBaseLoader
     doc_prompt = PromptTemplate.from_template("{page_content}")
 
