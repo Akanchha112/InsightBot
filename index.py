@@ -21,7 +21,7 @@ def get_user_url():
             print("Please enter a valid URL.")
 
 
-def summarize_article(url):
+def summarize_article(url): 
     """Summarizes an article using the provided URL."""
     loader = WebBaseLoader(url)
     docs = loader.load()
