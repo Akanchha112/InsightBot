@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InsightBot</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Website Summary Generator</h1>
+        <form id="summaryForm">
+            <label for="websiteLink">Enter Website Link:</label>
+            <input type="url" id="websiteLink" name="websiteLink" placeholder="https://example.com" required>
+            <button type="submit">Submit</button>
+        </form>
+        <div id="loadingMessage" class="hidden">Just wait a few seconds, summary is getting ready...</div>
+        <div id="summaryBox" class="hidden">
+            <h2>Summary</h2>
+            <p id="summaryContent"></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('summaryForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            document.getElementById('loadingMessage').classList.remove('hidden');
+            document.getElementById('summaryBox').classList.add('hidden');
+
+            setTimeout(() => {
+                document.getElementById('loadingMessage').classList.add('hidden');
+                document.getElementById('summaryContent').textContent = 'This is where the summary of the website will be displayed.';
+                document.getElementById('summaryBox').classList.remove('hidden');
+            }, 3000); // Simulate a delay for the summary generation
+        });
+    </script>
+</body>
+</html>
