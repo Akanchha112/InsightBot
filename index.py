@@ -1,7 +1,7 @@
 import os
 from config import API_KEY
 
-os.environ['GOOGLE_API_KEY'] = " "
+os.environ['GOOGLE_API_KEY'] = "AIzaSyC-8NsxbigOXxAMIKS2cV_2CkxXs79Y4iI"
 # os.environ['GOOGLE_API_KEY'] = getpass.getpass('Gemini API Key:')
 
 from langchain import PromptTemplate
@@ -44,7 +44,7 @@ CONCISE SUMMARY:\n\n"""
             )
         }
         | llm_prompt  # Prompt for Gemini
-        | ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.7, top_p=0.85, google_api_key="")  # This defines the llm variable
+        | ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.7, top_p=0.85, google_api_key="AIzaSyC-8NsxbigOXxAMIKS2cV_2CkxXs79Y4iI")  # This defines the llm variable
         | StrOutputParser()  # output parser
     )
 
