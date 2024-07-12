@@ -53,7 +53,7 @@ def summarize_article(url):
             )
         }
         | llm_prompt
-        | ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.7, top_p=0.85, google_api_key=os.getenv(GOOGLE_API_KEY))
+        | ChatGoogleGenerativeAI(model="gemini-pro", temperature=0.7, top_p=0.85, google_api_key=os.getenv("GOOGLE_API_KEY"))
         | StrOutputParser()
     )
 
