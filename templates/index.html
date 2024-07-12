@@ -27,11 +27,25 @@
             document.getElementById('loadingMessage').classList.remove('hidden');
             document.getElementById('summaryBox').classList.add('hidden');
 
-            setTimeout(() => {
+            const url = document.getElementById('websiteLink').value;
+
+            fetch('/summarize', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ url: url })
+            })
+            .then(response => response.json())
+            .then(data => {
                 document.getElementById('loadingMessage').classList.add('hidden');
-                document.getElementById('summaryContent').textContent = 'This is where the summary of the website will be displayed.';
+                document.getElementById('summaryContent').textContent = data.summary;
                 document.getElementById('summaryBox').classList.remove('hidden');
-            }, 3000); // Simulate a delay for the summary generation
+            })
+            .catch(error => {
+                document.getElementById('loadingMessage').classList.add('hidden');
+                alert('An error occurred: ' + error.message);
+            });
         });
     </script>
 </body>
