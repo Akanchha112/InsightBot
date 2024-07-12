@@ -1,6 +1,5 @@
 import os
 from flask import Flask, render_template, request, jsonify
-from config import API_KEY
 from langchain import PromptTemplate
 from langchain.document_loaders import WebBaseLoader
 from langchain.schema import StrOutputParser
